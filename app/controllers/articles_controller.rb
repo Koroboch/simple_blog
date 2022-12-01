@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def article_params
     params.require(:article).permit(:username, :title, :text)
   end
