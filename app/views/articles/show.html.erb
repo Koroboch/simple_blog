@@ -2,4 +2,5 @@
 <p><%=@article.text%></p>
 <p6><%="Опубликовал #{@article.username}, в #{@article.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
 <%= link_to "Edit article", edit_article_path(@article) %>
+<%= button_to 'Delete', (@article), method: :delete, form: { data: { 'turbo-confirm': 'Вы уверены?' } } %>
   
