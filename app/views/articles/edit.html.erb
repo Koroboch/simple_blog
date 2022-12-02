@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<%= form_for :article, url: article_path(@article), data: { confirm: 'Are you sure?' },  method: :put do |f| %>
+<%= form_for :article, url: article_path(@article),  method: :put do |f| %>
   <p><%= f.label :username %>
   <%= f.text_field :username %></p>
 
