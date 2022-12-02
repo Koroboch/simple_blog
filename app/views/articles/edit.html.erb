@@ -1,4 +1,4 @@
-<%= turbo_frame_tag @article, data: {turbo_action: 'advance'} do %>
+<%= turbo_frame_tag @article do %>
 <h1>Edit article</h1>
 <% if @article.errors.any? %>
   <h3>The following errors prevented the article from being saved:</h3>
