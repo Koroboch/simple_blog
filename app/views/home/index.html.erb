@@ -6,7 +6,7 @@
   <p><%= article.text %></p>
   <p6><%= "Posted #{article.username}, in #{article.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
   <%= link_to "Edit article",  edit_article_path(article) %>
-  <%= button_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to "Delete", article, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
   <br>
   <br>
 <% end %>
