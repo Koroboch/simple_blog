@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    flash[:notice] = "This article was updated successfully"
   end
 
   def update

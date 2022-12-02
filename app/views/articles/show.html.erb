@@ -1,4 +1,25 @@
-
+  
   <h4><%=@article.title%></h4>
   <p><%=@article.text%></p>
   <p6><%="Published #{@article.username}, в #{@article.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+  <hr>
+  <% @article.comments. each do |comment| %>
+    <h4><%=comment.body%></h4>
+    <p6><%="Published #{comment.author}, в #{comment.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+    <hr>
+  <% end %>
+  <p>
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p><%= f.submit %></p>
+
+<% end %>
+</p>
