@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  
+
   def new
   end
 
@@ -34,6 +34,8 @@ class ArticlesController < ApplicationController
 
     redirect_to root_path
   end
+
+  private
 
   def article_params
     params.require(:article).permit(:username, :title, :text)
