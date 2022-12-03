@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+   <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Болталка</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li> 
+          <a class="nav-link active" href="/terms">Terms</a>
+        </li>
+        <li>
+          <a class="nav-link active" href="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/">Articles</a></li>
+            <li><a class="dropdown-item" href="<%= new_article_path(@article)%>">Add new article</a></li>
+          </ul>
+          </li class="nav-item">
+      </ul>
+      <ul class="navbar-nav navbar-right">
+        <%if user_signed_in?%>
+        <div class="fixed-right">
+          Welcome, <%= current_user.username%>!
+        </div>
+        <div class="btn btn-light btn-sm">
+          <%= link_to 'Sign Out', destroy_user_session_path, :class => "btn btn-sm"%>
+        <%else%>
+          <%= link_to 'Sign In', new_user_session_path, :class => "btn btn-sm"%>
+        </div>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
