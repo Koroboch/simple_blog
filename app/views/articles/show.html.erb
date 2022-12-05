@@ -1,15 +1,17 @@
 <%= turbo_frame_tag @article do %>
-<h4><%=@article.title%></h4>
-<p><%=@article.text%></p>
-<p6><%="Published #{@article.username}, в #{@article.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
-<hr>
- <%= link_to "Edit article",  edit_article_path(@article) %>
+  <h4><%=@article.title%></h4>
+  <p><%=@article.text%></p>
+  <p6><%="Published #{@article.username}, в #{@article.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+  <hr>
+  <%= link_to "Edit article",  edit_article_path(@article) %>
  <% end %>
-  <%= link_to "Delete", @article, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
+
+<%= link_to "Delete", @article, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
+
 <p>Comments</p>
+
 <br>
 
 <%= render 'comment' %>
 <%= render 'shared/add_comment' %>
 <br>
-

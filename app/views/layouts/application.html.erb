@@ -12,9 +12,7 @@
 
   <body>
    <%= render 'shared/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-   <% flash.each do |name, msg| %>
+   <% flash.each do |_, msg| %>
      <%= msg %>
    <% end %>
    <%= yield %>

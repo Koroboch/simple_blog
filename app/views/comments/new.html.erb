@@ -1,4 +1,4 @@
-<%= turbo_frame_tag @article do %>
+<%= turbo_frame_tag @article.comments.new do %>
   <p>
     <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>

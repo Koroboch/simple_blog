@@ -1,1 +1,1 @@
-<%= turbo_stream.replace @article, partial: 'shared/last_comment' %>
+<%= turbo_stream.replace @article.comments.new, partial: 'shared/last_comment' %>
