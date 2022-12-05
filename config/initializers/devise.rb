@@ -1,3 +1,18 @@
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
+
+
 # frozen_string_literal: true
 
 # Assuming you have not yet modified this file, each configuration option below
@@ -9,8 +24,26 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+   # ==> Navigation configuration
+  # Lists the formats that should be treated as navigational. Formats like
+  # :html, should redirect to the sign in page when the user does not have
+  # access, but formats like :xml or :json, should return 401.
+  #
+  # If you have any extra navigational formats, like :iphone or :mobile, you
+  # should add them to the navigational formats lists.
+  #
+  # The "*/*" below is required to match Internet Explorer requests.
   config.navigational_formats = ['*/*', :html, :turbo_stream]
-  
+
+  # ==> Controller configuration
+  # Configure the parent class to the devise controllers.
+  config.parent_controller = 'TurboController'
+
+  # ==> Warden configuration
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -48,7 +81,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+   config.authentication_keys = [:username]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
