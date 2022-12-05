@@ -1,0 +1,6 @@
+ <% @article.comments. each do |comment| %>
+    <h4><%=comment.body%></h4>
+    <p6><%="Published #{comment.author}, в #{comment.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+    <hr>
+  <% end %>
+  

@@ -1,9 +1,13 @@
 class CommentsController < ApplicationController
  def create
     @article = Article.find(params[:article_id])
-    @article.comments.create(comment_params)
+    @comment = @article.comments.new comment_params
+    @comment.save
 
-    redirect_to article_path(@article)
+  end
+
+  def new
+    @article = Article.find(params[:article_id])
   end
 
   private
