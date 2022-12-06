@@ -1,0 +1,13 @@
+<%=form_with model: @article do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, size: 40, placeholder: 'Title', class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :text %>
+    <%= f.text_area :text, cols: 40, rows: 7, placeholder: 'Text', class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit :Create, class: 'btn btn-success'%>
+  </p>
+<%end%>
