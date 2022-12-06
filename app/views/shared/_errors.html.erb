@@ -1,0 +1,12 @@
+<% if object %>
+  <% if object.errors.any? %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+      <h5>The following errors prevented the article from being saved:</h5>
+        <% object.errors.full_messages.each do |msg| %>
+         <li><p5><%= msg %></p5></li> 
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
