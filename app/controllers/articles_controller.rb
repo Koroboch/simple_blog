@@ -2,16 +2,17 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def new
+    @article = current_user.articles.build
   end
 
   def create
-    @new_article = current_user.articles.build(article_params)
-    @new_article.username = current_user.username
-      if @new_article.save
-        flash[:notice] = "This article was saved successfully"
-        redirect_to @new_article
+    @article = current_user.articles.build(article_params)
+    @article.username = current_user.username
+      if @article.save
+        flash[:success] = "This article was created successfully"
+        redirect_to @article
       else
-        render 'new'
+        render 'new', status: :unprocessable_entity
       end
   end
 
@@ -25,14 +26,19 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(article_params)
-    redirect_to article_path(@article)
+
+    if @article.update(article_params)
+      flash[:success] = "This article was saved successfully"
+      redirect_to article_path(@article)
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-
+    flash[:warning] = "This article was deleted"
     redirect_to root_path
   end
 
