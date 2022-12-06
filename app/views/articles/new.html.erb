@@ -1,24 +1,17 @@
-<h1>New article</h1>
+<div class="container p-2">
+  <div class="row">
+    <%= render 'shared/errors', object: @article %>
+  </div>
 
-<% if @new_article %>
-  <% if @new_article.errors.any? %>
-    <h3>The following errors prevented the article from being saved:</h3>
-    <ul>
-      <% @new_article.errors.full_messages.each do |msg| %>
-       <li><%= msg %></li> 
-      <% end %>
-    </ul>
-  <% end %>
-<% end %>
+  <div class="row">
+    <div class="col col-md-3"></div>
+    <div class="col col-md-5">
+      <h5>New Article</h5>
 
-<%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
-
-  <p><%= f.label :title %>
-  <%= f.text_field :title %></p>
-
-  <p><%= f.label :text %>
-  <%= f.text_area :text %></p>
-
-  <p><%= f.submit %></p>
-<% end %>
-
+      <%= render 'form' %>
+   
+    </div>
+    <div class="col col-md-4"></div>
+  </div>
+</div>
+  

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="utf-8"> 
     <title>Болталка</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -8,13 +9,22 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <style>
+      textarea { resize: none !important; }
+      p6 {  font-size: 10px;  } 
+      p5 {  font-size: 13px;  }
+      p4 {  font-size: 16px;  }
+      body { background: #EADDCA !important; }
+    </style>
   </head>
 
   <body>
    <%= render 'shared/header' %>
-   <% flash.each do |_, msg| %>
-     <%= msg %>
-   <% end %>
+    <main class="container">
+      <% flash.each do |k, msg| %>
+        <%= tag.div msg, class: "alert alert-#{k}", role: 'alert' %>
+      <% end %>
+    </main>
    <%= yield %>
   </body>
 </html>

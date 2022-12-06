@@ -1,24 +1,5 @@
 <%= turbo_frame_tag @article do%>
-<h1>Edit article</h1>
-<% if @article.errors.any? %>
-  <h3>The following errors prevented the article from being saved:</h3>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-     <li><%= msg %></li> 
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_for :article, url: article_path(@article),  method: :put do |f| %>
-  <p><%= f.label :username %>
-  <%= f.text_field :username %></p>
-
-  <p><%= f.label :title %>
-  <%= f.text_field :title %></p>
-
-  <p><%= f.label :text %>
-  <%= f.text_area :text %></p>
-
-  <p><%= f.submit %></p>
-<% end %>
+  <h1>Edit article</h1>
+  <%= render 'shared/errors', object: @article %>
+  <%= render 'form' %>
 <% end %>

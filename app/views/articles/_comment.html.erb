@@ -1,6 +1,11 @@
- <% @article.comments.each do |comment| %>
-    <h4><%=comment.body%></h4>
-    <p6><%="Published #{comment.author}, в #{comment.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
-    <hr>
-  <% end %>
+<div class="card-header bg-light"><h5>Comments</h5></div>
+<% @article.comments.each do |comment| %>
+  <div class="card-body">
+    <section class="card-text">
+      <p><%=comment.body%></p>
+      <p6><%="Published #{comment.author}, в #{comment.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+      <hr>
+    </section>
+  </div>
+<% end %>
   
