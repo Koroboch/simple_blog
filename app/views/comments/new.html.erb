@@ -2,10 +2,6 @@
   <p>
     <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
-    <%= f.label :author %>
-    <%= f.text_field :author %>
-  </p>
-  <p>
     <%= f.label :body %>
     <%= f.text_area :body %>
   </p>
