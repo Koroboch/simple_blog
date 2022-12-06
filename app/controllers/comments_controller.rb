@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
     @comment = @article.comments.new(comment_params)
     @comment.author = current_user.username
     @comment.user_id = current_user.id
-    @comment.save
+    if @comment.save != true
+      render 'new', status: :unprocessable_entity
+    end
 
   end
 
