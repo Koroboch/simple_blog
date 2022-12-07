@@ -38,3 +38,16 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+db/schema.rb
+db/migrate/20221206072807_add_user_id_to_articles.rb
+db/migrate/20221206075906_add_user_id_to_comments.rb
+db/schema.rb
+db/migrate/20221206085210_add_commentable_id_to_comments.rb
+db/migrate/20221206085329_add_commentable_type_to_comments.rb
+db/migrate/20221206091200_remove_commentable_type_to_comments.rb
+db/migrate/20221206091240_remove_commentable_id_to_comments.rb
+db/schema.rb
+db/schema.rb
+db/schema.rb
+db/schema.rb

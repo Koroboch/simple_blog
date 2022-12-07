@@ -2,7 +2,7 @@
   <% if object.errors.any? %>
     <div class="alert alert-danger">
       <ul class="mb-0">
-      <h5>The following errors prevented the article from being saved:</h5>
+      <p><b>The following errors prevented the article from being saved:</b></p>
         <% object.errors.full_messages.each do |msg| %>
          <li><p5><%= msg %></p5></li> 
         <% end %>

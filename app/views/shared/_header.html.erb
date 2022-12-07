@@ -1,9 +1,9 @@
 <header>
   <div class="container-fluid">
     <div class="row">
-     <nav class="navbar navbar-expand-lg bg-light">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Болталка</a>
+      <a class="navbar-brand" href="/">Bla Bla</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,13 +27,15 @@
         </ul>
         <ul class="navbar-nav navbar-right">
           <%if user_signed_in?%>
-          <div class="fixed-right p-2">
-            Welcome, <%= current_user.username %>!
+          <div class="fixed-right p-2 text-light">
+            Welcome, <%= link_to "#{current_user.username}", edit_user_registration_path, class: 'home_links', style: 'color: white' %>
           </div>
           <div class="btn btn-light btn-sm">
-            <%= link_to 'Sign Out', destroy_user_session_path, :class => "btn btn-sm"%>
+            <%= link_to 'Sign Out', destroy_user_session_path, class: "btn btn-sm"%>
+            </div>
           <%else%>
-            <%= link_to 'Sign In', new_user_session_path, :class => "btn btn-sm"%>
+          <div class="btn btn-light btn-sm">
+            <%= link_to 'Sign In', new_user_session_path, class: "btn btn-sm"%>
           </div>
           <%end%>
         </ul>
