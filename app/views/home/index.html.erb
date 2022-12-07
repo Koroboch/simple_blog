@@ -1,8 +1,10 @@
+<%= provide :page_title, "Home" %>
 <div class="container">
   <br>
   <div class="row">
     <div class="col col-md-2"></div>
     <div class="col col-md-7">
+      <%== pagy_bootstrap_nav @pagy %>
       <%@articles.each do |article|%>
         <article class="card mt-2">
           <div class="card-header bg-light"><h5><b><%= article.title%></b></h5></div>
@@ -19,6 +21,8 @@
           </div>
         </article>
       <%end%>
+      <br>
+      <%== pagy_bootstrap_nav @pagy %>
     </div>
     <div class="col col-md-3"></div>
   </div>
