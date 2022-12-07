@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/terms' => 'pages#terms'
   get '/about' => 'pages#about'
 
+  resources :users
+
   resources :articles do
     resources :comments
   end
