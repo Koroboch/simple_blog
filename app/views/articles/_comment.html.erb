@@ -4,7 +4,7 @@
     <section class="card-text">
       <p><%=comment.body%></p>
       <br>
-      <p6><%="Published #{comment.author}, в #{comment.created_at.strftime("%Y-%m-%d %H:%M")}"%></p6>
+      <p6> Published <b><%= "#{comment.author}" %></b>, in <%= "#{comment.created_at.strftime("%Y-%m-%d %H:%M")}" %></p6>
       <hr>
     </section>
   </div>
