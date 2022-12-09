@@ -51,3 +51,8 @@ db/schema.rb
 db/schema.rb
 db/schema.rb
 db/schema.rb
+db/migrate/20221201152725_create_articles.rb
+db/migrate/20221201152725_create_articles.rb
+db/migrate/20221202125339_create_comments.rb
+db/migrate/20221203090225_add_username.rb
+db/migrate/20221203094558_addindex.rb
