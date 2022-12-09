@@ -1,16 +1,15 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
- def create
+  def new
+    @article = Article.find(params[:article_id])
+  end
+
+  def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
     @comment.author = current_user.username
-    if @comment.save != true
-      render 'new', status: :unprocessable_entity
-    end
-
-  end
-
-  def new
-    @article = Article.find(params[:article_id])
+    render 'new', status: :unprocessable_entity if @comment.save != true
   end
 
   private
