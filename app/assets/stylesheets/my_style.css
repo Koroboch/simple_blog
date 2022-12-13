@@ -1,0 +1,47 @@
+textarea { 
+     resize: none !important; 
+}
+
+p6 {  
+     font-size: 10px; 
+}
+
+p5 {
+     font-size: 13px;  
+}
+p4 {  
+     font-size: 16px;  
+}
+
+body { 
+     background: #dcedc8 !important; 
+}
+
+.home_links:hover{ 
+     color:#57a22b !important; 
+}
+
+.flag {
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+     background: url('./flags.png') no-repeat;
+     overflow: hidden;
+     text-indent: -9999px;
+     text-align: left;
+}
+
+.ru-flag {
+     background-position: -1px -0px;     
+}
+
+.en-flag {
+     background-position: -1px -17px;
+}
+
+.nav {
+     .flag {
+          position: relative;
+          top: 2px;
+     }
+}

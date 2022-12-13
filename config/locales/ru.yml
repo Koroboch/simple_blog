@@ -1,0 +1,11 @@
+ru:
+  en: Английский
+  ru: Русский
+  activerecord:
+    attributes:
+      article:
+        title: "Заголовок"
+        text: "Текст"
+  app_helper: "Болталка"
+  home:
+    home: "Главная"

@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   include ErrorHandling
+  include Internationalization
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

@@ -3,7 +3,7 @@
     <div class="row">
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Bla Bla</a>
+      <a class="navbar-brand" href="/"><%= t('home.home') %></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,6 +24,25 @@
               <li><a class="dropdown-item" href="<%= new_article_path(@article)%>">Add new article</a></li>
             </ul>
             </li class="nav-item">
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown">
+            <%= link_to '#', class: "nav-link dropdown-toggle text-white", data: {"bs-toggle": 'dropdown'} do %>
+              <%= tag.div '', class: "flag #{I18n.locale}-flag" %>
+              <%= t(locale) %>
+            <% end %>
+            <ul class="dropdown-menu">
+              <% I18n.available_locales.each do |locale| %>
+              <li>
+                <% if I18n.locale == locale %>
+                  <%= tag.span t(locale), class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to t(locale), root_path(locale: locale), class: "dropdown-item" %>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
         <ul class="navbar-nav navbar-right">
           <%if user_signed_in?%>

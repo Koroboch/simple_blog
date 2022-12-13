@@ -4,7 +4,7 @@ module ApplicationHelper
   include Pagy::Frontend
 
   def full_title(page_title = '')
-    base_title = 'Bla Bla'
+    base_title = t('app_helper')
     if page_title.present?
       "#{page_title} | #{base_title}"
     else

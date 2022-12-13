@@ -30,4 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  en: English
+  ru: Russian
+  activerecord:
+    attributes:
+      article:
+        title: "Title"
+        text: "Text"
+  app_helper: "Boltalka"
+  home:
+    home: "Home"

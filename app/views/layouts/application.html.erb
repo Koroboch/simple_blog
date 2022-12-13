@@ -9,14 +9,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <style>
-      textarea { resize: none !important; }
-      p6 {  font-size: 10px;  } 
-      p5 {  font-size: 13px;  }
-      p4 {  font-size: 16px;  }
-      body { background: #dcedc8 !important; }
-      .home_links:hover{ color:#57a22b!important; }
-    </style>
+    <%= stylesheet_link_tag "application", "my_style", "data-turbo-track": "reload" %>
   </head>
 
   <body>

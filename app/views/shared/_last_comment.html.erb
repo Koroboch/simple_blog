@@ -1,4 +1,4 @@
 <p><%=@comment.body%></p>
-<p6> Published <b><%= "#{comment.author}" %></b>, in <%= "#{comment.created_at.strftime("%Y-%m-%d %H:%M")}" %></p6>
+<p6> Published <b><%= "#{@comment.author}" %></b>, in <%= "#{@comment.created_at.strftime("%Y-%m-%d %H:%M")}" %></p6>
 <hr>
 <%= render 'shared/add_comment' %>
