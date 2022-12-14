@@ -6,9 +6,21 @@
     <h2>Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% if flash[:notice].present? %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:alert].present? %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
       <div class="field">
         <%= f.label :username %><br />
-        <%= f.text_field :username, autocomplete: "username", value: params[:username], class: 'form-control' %>
+        <%= f.text_field :username, autocomplete: "username", class: 'form-control' %>
       </div>
 
       <div class="field">
