@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
+
+  has_many :comments, dependent: :delete_all
+  has_many :articles, dependent: :delete_all
+
+
   validates :username, uniqueness: true
   validates :email, uniqueness: true, presence: true
   validate :password_complexity
