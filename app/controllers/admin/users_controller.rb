@@ -1,6 +1,8 @@
 # frozen_string_literal: true 
 
 class Admin::UsersController < ApplicationController
+before_action :set_user!, only: %i[ edit update destroy]
+
   def index
     respond_to do |format|
       format.html do
@@ -18,7 +20,40 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  def edit
+  end
+
+  def update
+    if params[:user][:password].blank?
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
+
+    if @user.update user_params
+      flash[:success] = 'This was was updated successfully'
+      
+      redirect_to admin_users_path
+    else
+      render 'edit', status: :unprocessable_entity
+    end
+
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = 'User deleted!'
+    redirect_to admin_users_path
+  end
+
   private
+
+  def set_user!
+    @user = User.find params[:id]
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :username)
+  end
 
   def respond_with_zipped_users
     compressed_filestream = Zip::OutputStream.write_buffer do |zos|

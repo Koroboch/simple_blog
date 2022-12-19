@@ -1,0 +1,45 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col col-md-2"></div>
+    <div class="col col-md-5">
+
+      <%=form_with model: [:admin, user] do |f| %>
+      <%= render "devise/shared/error_messages", resource: user %>
+        
+        <div class="field">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :role %>
+          <%= f.select :role, user_roles, {}, class: 'form-select' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Save", class: 'btn btn-success mt-2' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

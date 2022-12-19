@@ -23,6 +23,8 @@ gem 'activerecord-import'
 
 gem 'rails-i18n'
 
+gem 'draper'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
@@ -83,6 +85,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'web-console'
   gem 'pry-rails'
+  gem 'awesome_print'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
