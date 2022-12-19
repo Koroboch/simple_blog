@@ -15,9 +15,9 @@
    <%= render 'shared/header' %>
     <main class="container">
       <% flash.each do |k, msg| %>
-        <% if k == :notice || k == :alert %>
+          <% k = 'success' if k == 'notice' %> 
+          <% k = 'danger' if k == 'alert' %>
           <%= tag.div msg, class: "alert alert-#{k}", role: 'alert' %>
-        <% end %>
       <% end %>
     </main>
    <%= yield %>
